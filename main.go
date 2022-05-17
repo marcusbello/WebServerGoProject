@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-func hellHandler(w http.ResponseWriter, r *http.Request) {
-	_, err := io.WriteString(w, "Hell World!\n")
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	_, err := io.WriteString(w, "Hello World!\n")
 	if err != nil {
 		return
 	}
@@ -16,7 +16,6 @@ func hellHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	fmt.Println("Welcome to my GoServer")
-
-	http.HandleFunc("/", hellHandler)
+	http.HandleFunc("/", helloHandler)
 	log.Fatal(http.ListenAndServe(":3080", nil))
 }
